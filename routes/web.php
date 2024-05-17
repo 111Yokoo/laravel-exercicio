@@ -18,6 +18,9 @@ Route::prefix('/intranet')->group(function(){
     Route::get('/pedidoFornecedor/{id_produto}/{quantidade?}', 'PedidoFornecedorController@PedidoFornecedor')->where('id_produto', '[0-9]+')->where('quantidade', '[0-9]+');
 });
 Route::get('/home', 'HomeController@Home')->name('home');
+Route::get('/cadPessoa', 'PessoaController@cadPessoa')->name('cadPessoa');
+Route::get('/formPessoa', 'PessoaController@formPessoa')->name('formPessoa');
+Route::get('/pessoa', 'PessoaController@Pessoa');
 Route::get('/produtos', 'ProdutosController@Produtos');
 Route::get('/carrinho/{id_produto}/{quantidade?}', 'CarrinhoController@Carrinho')->where('id_produto', '[0-9]+')->where('quantidade', '[0-9]+');
 Route::fallback(function(){
