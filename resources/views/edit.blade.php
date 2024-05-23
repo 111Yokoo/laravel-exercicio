@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Pessoa</title>
+    <title>Update Pessoa</title>
     <style>
         body{
             display: flex;
@@ -28,29 +28,26 @@
     </style>
 </head>
 <body>
-    <form action="/formPessoa" method="GET">
+    <form action="/updatePessoa/{{$pessoa->id}}" method="POST">
+    @method('PUT')
+    @csrf
         <div>
         Nome: 
-        <input name="nome" type="text"/>
+        <input name="nome" type="text" value="{{$pessoa->nome}}"/>
         </div>
         <div>
         Hobby: 
-        <input name="hobby" type="text"/>
+        <input name="hobby" type="text" value="{{$pessoa->hobby}}"/>
         </div>
         <div>
         Idade: 
-        <input name="idade" type="text"/>
+        <input name="idade" type="text" value="{{$pessoa->idade}}"/>
         </div>
         <div>
         Escolaridade: 
-        <input name="escolaridade" type="text"/>
+        <input name="escolaridade" type="text" value="{{$pessoa->escolaridade}}"/>
         </div>
         <div><input type="submit" value="Enviar"/></div>
-        @if(session('msg'))
-            <p>{{session('msg')}}</p>
-        @endif
-        <a href="/pessoa">Lista de Pessoas</a>
     </form>
-    
 </body>
 </html>

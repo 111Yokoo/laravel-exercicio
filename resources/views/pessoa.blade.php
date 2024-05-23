@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    
+    <a href="/cadPessoa">Adicionar Pessoa</a>
 <table>
     <thead>
         <tr>
@@ -22,6 +22,7 @@
             <th>Hobby</th>
             <th>Idade</th>
             <th>Escolaridade</th>
+            <th>Editar Status</th>
         <tr>
     </thead>
     <tbody>  
@@ -32,6 +33,19 @@
                 <td>{{$pessoa->hobby}}</td>
                 <td>{{$pessoa->idade}}</td>
                 <td>{{$pessoa->escolaridade}}</td>
+                <td style="width:160px">
+                    <div style="display:flex;justify-content:space-around">
+                        <form action="/editPessoa/{{$pessoa->id}}" method="GET">
+                            @csrf
+                            <input style="width:50%;margin:auto" type="image" src="assets/edit.jpeg" alt="editar">
+                        </form>
+                        <form action="/delPessoa/{{$pessoa->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input style="width:50%;margin:auto" type="image" src="assets/excluir.png"  alt="excluir">
+                        </form>
+                    </div>
+                </td>
             </tr>
         @endforeach
     </tbody>

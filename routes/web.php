@@ -27,6 +27,9 @@ Route::fallback(function(){
     return 'Página não existe.<a href="'.route('home').'">Clique aqui</a> para retornar';
 });
 
+Route::delete('/delPessoa/{id}','PessoaController@destroy');
+Route::get('/editPessoa/{id}','PessoaController@edit');
+Route::put('/updatePessoa/{id}','PessoaController@update');
 
 
 

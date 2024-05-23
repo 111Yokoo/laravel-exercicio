@@ -32,10 +32,23 @@ class PessoaController extends Controller
             $pessoa->idade = $request['idade'];
             $pessoa->escolaridade = $request['escolaridade'];
             $pessoa->save();
-
             return redirect('/cadPessoa')->with('msg', 'Aluno Cadastrado');
         }else{
             return redirect('/cadPessoa')->with('msg', 'Aluno Existente');
         }
     }
+    public function destroy(int $id){
+        Pessoa::findOrFail($id)->delete();
+        return redirect('/pessoa')->with('msg','Aluno Excluido com Sucesso!');
+     }
+  
+     public function edit(int $id){
+        $pessoa = Pessoa::findOrFail($id);
+        return view('edit',['pessoa'=>$pessoa]);
+     }
+  
+     public function update(Request $request){
+        Pessoa::findOrFail($request->id)->update($request->all());
+        return redirect('/pessoa')->with('msg','Aluno Editado com Sucesso!');
+     }
 }
