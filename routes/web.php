@@ -26,31 +26,13 @@ Route::get('/carrinho/{id_produto}/{quantidade?}', 'CarrinhoController@Carrinho'
 Route::fallback(function(){
     return 'Página não existe.<a href="'.route('home').'">Clique aqui</a> para retornar';
 });
-
 Route::delete('/delPessoa/{id}','PessoaController@destroy');
 Route::get('/editPessoa/{id}','PessoaController@edit');
 Route::put('/updatePessoa/{id}','PessoaController@update');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/login','LoginController@login');
+Route::post('/auth','LoginController@auth');
+Route::get('/cadUsuario','LoginController@cadUsuario');
+Route::post('/upUsuario','LoginController@upUsuario');
+Route::post('/btnAuth','LoginController@btnAuth');

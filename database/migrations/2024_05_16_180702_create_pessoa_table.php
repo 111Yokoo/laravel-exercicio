@@ -19,6 +19,7 @@ class CreatePessoaTable extends Migration
             $table->string('hobby', 255);
             $table->integer('idade');
             $table->string('escolaridade', 255);
+            $table->string('senha', 255);
             $table->timestamps();
         });
     }
